@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1046936014894",
+    "project_id": "vertex-ai-kmp",
+    "storage_bucket": "vertex-ai-kmp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046936014894:android:e02a3bd8cff48621b44fbf",
+        "android_client_info": {
+          "package_name": "dev.johnoreilly.vertexai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATYULX2YdFsUjRFL3vmtRLoWHRYOiF7E4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,1 +1,2 @@
-# VertexAI-KMP-Sample
+# Vertex AI KMP Sample
+
