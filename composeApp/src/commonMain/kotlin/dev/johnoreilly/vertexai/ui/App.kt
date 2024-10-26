@@ -23,7 +23,7 @@ fun App() {
             }
         ) {
             Column(modifier = Modifier.padding(it)) {
-                GenerativeTextScreen()
+                HomeScreen()
             }
         }
     }

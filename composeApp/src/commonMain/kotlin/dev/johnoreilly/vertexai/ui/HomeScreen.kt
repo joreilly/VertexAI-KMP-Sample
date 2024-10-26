@@ -2,11 +2,15 @@ package dev.johnoreilly.vertexai.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ListItem
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -32,10 +36,12 @@ import vertexai_kmp_sample.composeapp.generated.resources.generate_content
 import vertexai_kmp_sample.composeapp.generated.resources.prompt
 
 @Composable
-fun GenerativeTextScreen() {
+fun HomeScreen() {
     val viewModel = koinViewModel<GenerativeModelViewModel>()
 
-    var prompt by rememberSaveable { mutableStateOf("") }
+    var prompt by rememberSaveable { mutableStateOf("Who are the top 10 football players?") }
+    val generateJson = remember { mutableStateOf(false) }
+
     val uiState by viewModel.uiState.collectAsState()
     val focusRequester = remember { FocusRequester() }
     val keyboardController = LocalSoftwareKeyboardController.current
@@ -44,11 +50,7 @@ fun GenerativeTextScreen() {
         focusRequester.requestFocus()
     }
 
-    Column(
-        modifier = Modifier
-            .verticalScroll(rememberScrollState())
-            .padding(16.dp)
-    ) {
+    Column(modifier = Modifier.padding(16.dp)) {
         OutlinedTextField(
             value = prompt,
             label = { Text(stringResource(Res.string.prompt)) },
@@ -58,11 +60,16 @@ fun GenerativeTextScreen() {
                 .fillMaxWidth()
         )
 
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text("Genreate JSON")
+            Checkbox(checked = generateJson.value, onCheckedChange = { generateJson.value = it })
+        }
+
         OutlinedButton(
             onClick = {
                 if (prompt.isNotBlank()) {
                     keyboardController?.hide()
-                    viewModel.generateContent(prompt)
+                    viewModel.generateContent(prompt, generateJson = generateJson.value)
                 }
             },
             modifier = Modifier.padding(vertical = 8.dp)
@@ -70,25 +77,41 @@ fun GenerativeTextScreen() {
             Text(stringResource(Res.string.generate_content))
         }
 
+        ResponseView(uiState)
+    }
+}
 
-        when (uiState) {
-            GenerativeModelUIState.Initial -> {
+@Composable
+fun ResponseView(uiState: GenerativeModelUIState) {
+    when (uiState) {
+        GenerativeModelUIState.Initial -> {}
+
+        GenerativeModelUIState.Loading -> {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
             }
+        }
 
-            GenerativeModelUIState.Loading -> {
-                Box(
-                    contentAlignment = Alignment.Center,
-                    modifier = Modifier
-                        .padding(all = 8.dp)
-                        .align(Alignment.CenterHorizontally)
-                ) {
-                    CircularProgressIndicator()
+        is GenerativeModelUIState.Success -> {
+            if (uiState.entityContent != null) {
+                LazyColumn {
+                    items(uiState.entityContent) { item ->
+                        ListItem(
+                            headlineContent = { Text(item.name)},
+                            supportingContent = { Text(item.country) }
+                        )
+                    }
                 }
+            } else if (uiState.textContent != null) {
+                Markdown(uiState.textContent)
             }
+        }
 
-            is GenerativeModelUIState.Success -> {
-                Markdown((uiState as GenerativeModelUIState.Success).content)
-            }
+        is GenerativeModelUIState.Error -> {
+            Text(uiState.message)
         }
     }
 }

@@ -1,5 +1,6 @@
 package dev.johnoreilly.vertexai
 
 interface GenerativeModel {
-    suspend fun generateContent(prompt: String): String?
+    suspend fun generateTextContent(prompt: String): String?
+    suspend fun generateJsonContent(prompt: String): String?
 }
