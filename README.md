@@ -15,7 +15,8 @@ The project uses the following multiplatform dependencies
 
 ## Screenshots
 
-<img width="490" alt="Screenshot 2024-10-23 at 20 55 48" src="https://github.com/user-attachments/assets/b334f2ed-680d-489d-9375-8b4071b6ba90">
+<img width="913" alt="Screenshot 2024-10-26 at 18 44 09" src="https://github.com/user-attachments/assets/c91f8cdc-d354-4ed5-9616-b430ddaabd6b">
+
 
 
 
