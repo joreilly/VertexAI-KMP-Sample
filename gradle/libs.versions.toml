@@ -3,10 +3,11 @@ agp = "8.7.1"
 androidx-activityCompose = "1.9.3"
 androidx-ui-tooling = "1.7.4"
 compose-multiplatform = "1.7.0"
-firebaseBom = "33.5.0"
+firebaseBom = "33.5.1"
 googleServices = "4.4.2"
 koin = "4.0.0"
 kotlin = "2.0.21"
+kotlinx-serialization = "1.7.3"
 markdownRenderer = "0.26.0"
 
 [libraries]
@@ -17,6 +18,8 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "fir
 firebase-vertexai = { module = "com.google.firebase:firebase-vertexai" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
+kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 markdown-renderer = { module = "com.mikepenz:multiplatform-markdown-renderer-m3", version.ref = "markdownRenderer" }
 
 [plugins]
@@ -25,3 +28,4 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "k
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 googleServices = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

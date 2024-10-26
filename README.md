@@ -2,7 +2,7 @@
 
 Compose/Kotlin Multiplatform sample that makes use of the [Firebase Vertex AI SDK](https://firebase.google.com/products/vertex-ai-in-firebase).
 The iOS and Android clients share the same Compose UI code but delegate to platform specific Swift and Kotlin code
-to invoke the respective SDKs.  Currently only text generation is supported but plan is to add other capabilities as well.
+to invoke the respective SDKs.  Currently generates either markdown text or configured json.
 
 
 The project uses the following multiplatform dependencies 

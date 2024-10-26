@@ -1,11 +1,9 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.googleServices)
 }
 
@@ -33,6 +31,8 @@ kotlin {
             implementation(libs.firebase.vertexai)
         }
         commonMain.dependencies {
+            implementation(libs.kotlinx.serialization)
+            implementation(libs.kotlinx.serialization.json)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)

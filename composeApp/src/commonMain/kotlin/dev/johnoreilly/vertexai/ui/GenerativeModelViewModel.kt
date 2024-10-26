@@ -5,23 +5,46 @@ import androidx.lifecycle.viewModelScope
 import dev.johnoreilly.vertexai.GenerativeModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 
+
+@Serializable
+data class Entity(
+    val name: String,
+    val country: String
+)
 
 sealed class GenerativeModelUIState {
     data object Initial: GenerativeModelUIState()
     data object Loading : GenerativeModelUIState()
-    data class Success(val content: String): GenerativeModelUIState()
+    data class Success(val textContent: String? = null, val entityContent: List<Entity>? = null): GenerativeModelUIState()
+    data class Error(val message: String): GenerativeModelUIState()
 }
 
 
-class GenerativeModelViewModel(val generativeModel: GenerativeModel) : ViewModel() {
+class GenerativeModelViewModel(private val generativeModel: GenerativeModel) : ViewModel() {
     val uiState = MutableStateFlow<GenerativeModelUIState>(GenerativeModelUIState.Initial)
 
-    fun generateContent(prompt: String) {
+    fun generateContent(prompt: String, generateJson: Boolean) {
+        uiState.value = GenerativeModelUIState.Loading
         viewModelScope.launch {
-            uiState.value = GenerativeModelUIState.Loading
-            val content = generativeModel.generateContent(prompt) ?: ""
-            uiState.value = GenerativeModelUIState.Success(content)
+            try {
+                uiState.value = if (generateJson) {
+                    val response = generativeModel.generateJsonContent(prompt)
+                    if (response != null) {
+                        val entities = Json.decodeFromString<List<Entity>>(response)
+                        GenerativeModelUIState.Success(entityContent = entities)
+                    } else {
+                        GenerativeModelUIState.Error("Error generating content")
+                    }
+                } else {
+                    val response = generativeModel.generateTextContent(prompt)
+                    GenerativeModelUIState.Success(textContent = response)
+                }
+            } catch (e: Exception) {
+                GenerativeModelUIState.Error(e.message ?: "Error generating content")
+            }
         }
     }
 }
