@@ -9,9 +9,7 @@ import com.google.firebase.vertexai.vertexAI
 
 
 class GenerativeModelAndroid: GenerativeModel {
-
-
-    val jsonSchema = Schema.array(
+    private val jsonSchema = Schema.array(
         Schema.obj(
             mapOf(
                 "name" to Schema.string(),
@@ -20,16 +18,6 @@ class GenerativeModelAndroid: GenerativeModel {
         )
     )
 
-    val generativeModel = Firebase.vertexAI.generativeModel(
-        modelName = "gemini-1.5-flash",
-        generationConfig = generationConfig {
-            responseMimeType = "application/json"
-            responseSchema = jsonSchema
-        }
-    )
-
-
-
     override suspend fun generateTextContent(prompt: String): String? {
         val generativeModel = Firebase.vertexAI.generativeModel(
             modelName = "gemini-1.5-flash"
@@ -37,7 +25,6 @@ class GenerativeModelAndroid: GenerativeModel {
 
         return generativeModel.generateContent(prompt).text
     }
-
 
     override suspend fun generateJsonContent(prompt: String): String? {
         val generativeModel = Firebase.vertexAI.generativeModel(
