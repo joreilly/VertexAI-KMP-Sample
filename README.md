@@ -17,6 +17,9 @@ The project uses the following multiplatform dependencies
 
 <img width="913" alt="Screenshot 2024-10-26 at 18 44 09" src="https://github.com/user-attachments/assets/c91f8cdc-d354-4ed5-9616-b430ddaabd6b">
 
+### Related posts
+
+* [Using Vertex AI in a Compose/Kotlin Multiplatform project](https://johnoreilly.dev/posts/vertex-ai-kmp/)
 
 
 
