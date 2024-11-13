@@ -9,7 +9,7 @@ koin = "4.0.0"
 kotlin = "2.0.21"
 kotlinx-serialization = "1.7.3"
 markdownRenderer = "0.26.0"
-composeLifecyleRuntime="2.8.3"
+composeLifecyleRuntime="2.8.4"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
