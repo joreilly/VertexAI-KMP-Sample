@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.googleServices)
+    alias(libs.plugins.skie)
 }
 
 kotlin {
@@ -74,3 +75,5 @@ android {
 dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
 }
+
+

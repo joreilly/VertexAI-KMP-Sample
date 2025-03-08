@@ -2,9 +2,14 @@ package dev.johnoreilly.vertexai.di
 
 import dev.johnoreilly.vertexai.GenerativeModel
 import dev.johnoreilly.vertexai.GenerativeModelAndroid
-import org.koin.core.module.Module
+import org.koin.core.context.startKoin
 import org.koin.dsl.module
 
-actual fun platformModule(): Module = module {
-    single<GenerativeModel> { GenerativeModelAndroid() }
+fun initialiseKoin() {
+    startKoin {
+        modules(
+            commonModule,
+            module { single<GenerativeModel> { GenerativeModelAndroid() } }
+        )
+    }
 }

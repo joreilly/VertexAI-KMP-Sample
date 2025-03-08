@@ -10,6 +10,7 @@ kotlin = "2.1.10"
 kotlinx-serialization = "1.8.0"
 markdownRenderer = "0.27.0"
 composeLifecyleRuntime="2.8.4"
+skie = "0.10.1"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -31,3 +32,4 @@ composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-mu
 googleServices = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+skie = { id = "co.touchlab.skie", version.ref = "skie"}
