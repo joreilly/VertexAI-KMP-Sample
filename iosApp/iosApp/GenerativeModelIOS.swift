@@ -16,7 +16,7 @@ class GenerativeModelIOS: ComposeApp.GenerativeModel {
       )
     )
     
-    func generateTextContent(prompt: String) async throws -> String? {
+    func __generateTextContent(prompt: String) async throws -> String? {
         let model = vertex.generativeModel(
             modelName: "gemini-1.5-flash"
         )
@@ -25,7 +25,7 @@ class GenerativeModelIOS: ComposeApp.GenerativeModel {
     }
     
     
-    func generateJsonContent(prompt: String) async throws -> String? {
+    func __generateJsonContent(prompt: String) async throws -> String? {
         let model = vertex.generativeModel(
             modelName: "gemini-1.5-flash",
             generationConfig: GenerationConfig(

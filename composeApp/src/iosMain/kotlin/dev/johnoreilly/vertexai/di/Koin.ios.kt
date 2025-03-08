@@ -1,12 +1,17 @@
 package dev.johnoreilly.vertexai.di
 
 import dev.johnoreilly.vertexai.GenerativeModel
-import dev.johnoreilly.vertexai.GenerativeModelIOS
-import org.koin.core.module.Module
+import org.koin.core.context.startKoin
 import org.koin.dsl.module
 
-var generativeModelIOS: GenerativeModel? = null
 
-actual fun platformModule(): Module = module {
-    single<GenerativeModel> { GenerativeModelIOS() }
+fun initialiseKoin(generativeModel: GenerativeModel) {
+    startKoin {
+        modules(
+            commonModule,
+            module { single<GenerativeModel> { generativeModel } }
+        )
+    }
+
 }
+
