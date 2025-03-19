@@ -16,10 +16,15 @@ data class Entity(
 )
 
 sealed class GenerativeModelUIState {
-    data object Initial: GenerativeModelUIState()
+    data object Initial : GenerativeModelUIState()
     data object Loading : GenerativeModelUIState()
-    data class Success(val textContent: String? = null, val entityContent: List<Entity>? = null): GenerativeModelUIState()
-    data class Error(val message: String): GenerativeModelUIState()
+    data class Success(
+        val textContent: String? = null,
+        val entityContent: List<Entity>? = null,
+        val imageData: ByteArray? = null
+    ) : GenerativeModelUIState()
+
+    data class Error(val message: String) : GenerativeModelUIState()
 }
 
 
@@ -47,4 +52,17 @@ class GenerativeModelViewModel(private val generativeModel: GenerativeModel) : V
             }
         }
     }
+
+    fun generateImage(prompt: String) {
+        uiState.value = GenerativeModelUIState.Loading
+        viewModelScope.launch {
+            uiState.value = try {
+                val imageData = generativeModel.generateImage(prompt)
+                 GenerativeModelUIState.Success(imageData = imageData)
+            } catch (e: Exception) {
+                GenerativeModelUIState.Error(e.message ?: "Error generating content")
+            }
+        }
+    }
 }
+

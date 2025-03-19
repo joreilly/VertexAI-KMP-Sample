@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
-		1AE956552CC93CC900F2AE5E /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1AE956542CC93CC900F2AE5E /* FirebaseCore */; };
-		1AE956572CC93CC900F2AE5E /* FirebaseVertexAI in Frameworks */ = {isa = PBXBuildFile; productRef = 1AE956562CC93CC900F2AE5E /* FirebaseVertexAI */; };
+		1A206DD92D820E5400165F57 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1A206DD82D820E5400165F57 /* FirebaseCore */; };
+		1A206DDB2D820E5400165F57 /* FirebaseVertexAI in Frameworks */ = {isa = PBXBuildFile; productRef = 1A206DDA2D820E5400165F57 /* FirebaseVertexAI */; };
 		1AE9565B2CC93E9B00F2AE5E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AE9565A2CC93E9B00F2AE5E /* GoogleService-Info.plist */; };
 		1AE9565D2CC9631E00F2AE5E /* GenerativeModelIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9565C2CC9631E00F2AE5E /* GenerativeModelIOS.swift */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
@@ -34,8 +34,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AE956552CC93CC900F2AE5E /* FirebaseCore in Frameworks */,
-				1AE956572CC93CC900F2AE5E /* FirebaseVertexAI in Frameworks */,
+				1A206DD92D820E5400165F57 /* FirebaseCore in Frameworks */,
+				1A206DDB2D820E5400165F57 /* FirebaseVertexAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +115,8 @@
 			);
 			name = iosApp;
 			packageProductDependencies = (
-				1AE956542CC93CC900F2AE5E /* FirebaseCore */,
-				1AE956562CC93CC900F2AE5E /* FirebaseVertexAI */,
+				1A206DD82D820E5400165F57 /* FirebaseCore */,
+				1A206DDA2D820E5400165F57 /* FirebaseVertexAI */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* VertexAIKMP.app */;
@@ -148,7 +148,7 @@
 			);
 			mainGroup = 7555FF72242A565900829871;
 			packageReferences = (
-				1AE956532CC93CC900F2AE5E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1A206DD72D820E5400165F57 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
@@ -405,25 +405,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1AE956532CC93CC900F2AE5E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		1A206DD72D820E5400165F57 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 11.4.0;
+				minimumVersion = 11.9.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1AE956542CC93CC900F2AE5E /* FirebaseCore */ = {
+		1A206DD82D820E5400165F57 /* FirebaseCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1AE956532CC93CC900F2AE5E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 1A206DD72D820E5400165F57 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCore;
 		};
-		1AE956562CC93CC900F2AE5E /* FirebaseVertexAI */ = {
+		1A206DDA2D820E5400165F57 /* FirebaseVertexAI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1AE956532CC93CC900F2AE5E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 1A206DD72D820E5400165F57 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseVertexAI;
 		};
 /* End XCSwiftPackageProductDependency section */

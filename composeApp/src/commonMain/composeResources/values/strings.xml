@@ -2,4 +2,5 @@
 <resources>
     <string name="prompt">Prompt</string>
     <string name="generate_content">Generate Content</string>
+    <string name="generate_image">Generate Image</string>
 </resources>
