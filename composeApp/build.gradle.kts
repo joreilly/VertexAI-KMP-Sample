@@ -46,6 +46,8 @@ kotlin {
             implementation(libs.koin.compose.viewmodel)
 
             implementation(libs.lifecyle.runtime)
+
+            implementation(libs.coil.compose)
         }
     }
 }
@@ -61,6 +63,7 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
