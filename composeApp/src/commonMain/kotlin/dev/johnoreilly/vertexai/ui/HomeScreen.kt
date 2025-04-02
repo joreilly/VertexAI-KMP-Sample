@@ -34,8 +34,10 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
@@ -69,6 +71,7 @@ fun HomeScreen() {
         BasicTextField(
             value = prompt,
             onValueChange = { prompt = it },
+            textStyle = TextStyle(fontSize = 24.sp),
             modifier = Modifier
                 .border(1.dp, Color.Black, RoundedCornerShape(8.dp))
                 .padding(8.dp)
@@ -109,12 +112,12 @@ fun HomeScreen() {
 
         }
 
-        ResponseView(uiState)
+        ResponseView(uiState, prompt.text)
     }
 }
 
 @Composable
-fun ResponseView(uiState: GenerativeModelUIState) {
+fun ResponseView(uiState: GenerativeModelUIState, prompt: String) {
     val scrollState = rememberScrollState()
 
     when (uiState) {
@@ -149,7 +152,7 @@ fun ResponseView(uiState: GenerativeModelUIState) {
                         .Builder(LocalPlatformContext.current)
                         .data(uiState.imageData)
                         .build(),
-                    contentDescription = "icon",
+                    contentDescription = prompt,
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.fillMaxWidth()
                 )
