@@ -5,8 +5,6 @@ import com.google.firebase.vertexai.type.PublicPreviewAPI
 import com.google.firebase.vertexai.type.Schema
 import com.google.firebase.vertexai.type.generationConfig
 import com.google.firebase.vertexai.vertexAI
-import kotlin.io.encoding.Base64
-import kotlin.io.encoding.ExperimentalEncodingApi
 
 
 class GenerativeModelAndroid : GenerativeModel {
@@ -39,14 +37,14 @@ class GenerativeModelAndroid : GenerativeModel {
         return generativeModel.generateContent(prompt).text
     }
 
-    @OptIn(PublicPreviewAPI::class, ExperimentalEncodingApi::class)
+    @OptIn(PublicPreviewAPI::class)
     override suspend fun generateImage(prompt: String): ByteArray? {
         val imageModel = Firebase.vertexAI.imagenModel(
             modelName = "imagen-3.0-generate-002"
         )
         val imageResponse = imageModel.generateImages(prompt)
         return if (imageResponse.images.isNotEmpty()) {
-            Base64.decode(imageResponse.images.first().data)
+            imageResponse.images.first().data
         } else {
             null
         }
