@@ -11,6 +11,7 @@ The project uses the following multiplatform dependencies
 - [Jetpack ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 - [Koin](https://github.com/InsertKoinIO/koin) 
 - [Markdown Renderer](https://github.com/mikepenz/multiplatform-markdown-renderer)
+- [Coil](https://github.com/coil-kt/coil)
 
 
 ### Related posts
@@ -20,7 +21,8 @@ The project uses the following multiplatform dependencies
 
 ## Screenshots
 
-<img width="913" alt="Screenshot 2024-10-26 at 18 44 09" src="https://github.com/user-attachments/assets/c91f8cdc-d354-4ed5-9616-b430ddaabd6b">
+
+<img width="736" alt="vertex_sample_screenshots" src="https://github.com/user-attachments/assets/6237e066-dd8a-427e-9fb6-63ef8ed619df" />
 
 
 
