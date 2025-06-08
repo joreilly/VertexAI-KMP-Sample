@@ -1,17 +1,17 @@
 [versions]
-agp = "8.9.1"
+agp = "8.10.1"
 androidx-activityCompose = "1.10.1"
-androidx-ui-tooling = "1.7.8"
-coil = "3.1.0"
-compose-multiplatform = "1.7.3"
-firebaseBom = "33.12.0"
+androidx-ui-tooling = "1.8.2"
+coil = "3.2.0"
+compose-multiplatform = "1.8.1"
+firebaseBom = "33.15.0"
 googleServices = "4.4.2"
 koin = "4.0.4"
-kotlin = "2.1.10"
-kotlinx-serialization = "1.8.0"
+kotlin = "2.1.20"
+kotlinx-serialization = "1.8.1"
 markdownRenderer = "0.27.0"
-composeLifecyleRuntime="2.8.4"
-skie = "0.10.1"
+composeLifecyleRuntime="2.9.0"
+skie = "0.10.2"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
