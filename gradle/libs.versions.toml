@@ -1,7 +1,7 @@
 [versions]
 agp = "8.10.1"
 androidx-activityCompose = "1.10.1"
-androidx-ui-tooling = "1.8.2"
+androidx-ui-tooling = "1.8.3"
 coil = "3.2.0"
 compose-multiplatform = "1.8.1"
 firebaseBom = "33.15.0"
