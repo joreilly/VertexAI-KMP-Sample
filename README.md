@@ -1,3 +1,5 @@
+![kotlin-version](https://img.shields.io/badge/kotlin-2.2.0-blue?logo=kotlin)
+
 # Vertex AI Compose/Kotlin Multiplatform Sample
 
 Compose/Kotlin Multiplatform sample that makes use of the [Firebase Vertex AI SDK](https://firebase.google.com/products/vertex-ai-in-firebase).
