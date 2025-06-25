@@ -10,7 +10,7 @@ koin = "4.1.0"
 kotlin = "2.2.0"
 kotlinx-serialization = "1.8.1"
 markdownRenderer = "0.27.0"
-composeLifecyleRuntime="2.9.0"
+composeLifecyleRuntime="2.9.1"
 skie = "0.10.4"
 
 [libraries]
